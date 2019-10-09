@@ -15,11 +15,13 @@ export default class ScrollBooster {
       textSelection: false,
       onClick: function () {},
       shouldScroll: function () { return true },
-      onUpdate: function () {}
+      onUpdate: function () {},
     }
 
+    
     this.props = { ...defaults, ...props }
-
+    // console.log("MODE",this.props.mode);
+    
     if (!this.props.content) {
       console.error('Viewport does not have any content')
       return
@@ -387,8 +389,8 @@ export default class ScrollBooster {
 
       clearTimeout(scrollTimer)
       scrollTimer = setTimeout(() => this.isScrolling = false, 80)
-
-      event.preventDefault()
+      
+      // event.preventDefault()
     }
 
     this.events.scroll = (event) => {

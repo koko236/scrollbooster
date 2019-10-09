@@ -116,6 +116,7 @@ var ScrollBooster = function () {
     };
 
     this.props = _extends({}, defaults, props);
+    // console.log("MODE",this.props.mode);
 
     if (!this.props.content) {
       console.error('Viewport does not have any content');
@@ -532,7 +533,7 @@ var ScrollBooster = function () {
           return _this3.isScrolling = false;
         }, 80);
 
-        event.preventDefault();
+        // event.preventDefault()
       };
 
       this.events.scroll = function (event) {
