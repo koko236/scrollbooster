@@ -533,7 +533,14 @@ var ScrollBooster = function () {
           return _this3.isScrolling = false;
         }, 80);
 
-        // event.preventDefault()
+        if (_this3.props.mode == 'x') {
+          if (Math.abs(_this3.scrollOffset.x) >= Math.abs(_this3.scrollOffset.y)) {
+            // console.log("MOSTLY X SCROLL", this.scrollOffset.x, this.scrollOffset.y);
+            event.preventDefault();
+          } else {
+            // console.log("MOSTLY Y SCROLL", this.scrollOffset.x, this.scrollOffset.y);
+          }
+        }
       };
 
       this.events.scroll = function (event) {

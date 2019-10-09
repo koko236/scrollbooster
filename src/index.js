@@ -390,7 +390,14 @@ export default class ScrollBooster {
       clearTimeout(scrollTimer)
       scrollTimer = setTimeout(() => this.isScrolling = false, 80)
       
-      // event.preventDefault()
+      if(this.props.mode == 'x') {
+        if(Math.abs(this.scrollOffset.x) >= Math.abs(this.scrollOffset.y)) {
+          // console.log("MOSTLY X SCROLL", this.scrollOffset.x, this.scrollOffset.y);
+          event.preventDefault();
+        } else {
+          // console.log("MOSTLY Y SCROLL", this.scrollOffset.x, this.scrollOffset.y);
+        }
+      }
     }
 
     this.events.scroll = (event) => {
